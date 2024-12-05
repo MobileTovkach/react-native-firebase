@@ -77,7 +77,7 @@ public class ReactNativeFirebaseMessagingModule extends ReactNativeFirebaseModul
           if (messageId != null && initialNotificationMap.get(messageId) == null) {
             WritableMap remoteMessageMap;
             RemoteMessage remoteMessage =
-                ReactNativeFirebaseMessagingReceiver.notifications.get(messageId);
+              ReactNativeFirebaseMessagingService.notifications.get(messageId);
             if (remoteMessage == null) {
               remoteMessageMap = popRemoteMessageMapFromMessagingStore(messageId);
             } else {
@@ -263,7 +263,7 @@ public class ReactNativeFirebaseMessagingModule extends ReactNativeFirebaseModul
 
       if (messageId != null) {
         RemoteMessage remoteMessage =
-            ReactNativeFirebaseMessagingReceiver.notifications.get(messageId);
+          ReactNativeFirebaseMessagingService.notifications.get(messageId);
         WritableMap remoteMessageMap;
 
         if (remoteMessage == null) {
@@ -279,7 +279,7 @@ public class ReactNativeFirebaseMessagingModule extends ReactNativeFirebaseModul
           WritableNativeMap newInitialNotification = new WritableNativeMap();
           newInitialNotification.merge(remoteMessageMap);
           initialNotification = newInitialNotification;
-          ReactNativeFirebaseMessagingReceiver.notifications.remove(messageId);
+          ReactNativeFirebaseMessagingService.notifications.remove(messageId);
 
           ReactNativeFirebaseEventEmitter emitter =
               ReactNativeFirebaseEventEmitter.getSharedInstance();
