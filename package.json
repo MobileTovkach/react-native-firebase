@@ -1,5 +1,6 @@
 {
   "name": "react-native-firebase",
+  "version": "18.8.0",
   "private": true,
   "scripts": {
     "version": "node ./scripts/version.js",
